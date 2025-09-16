@@ -1,0 +1,28 @@
+{
+  "name": "lab-sys-tech-test",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "keywords": [],
+  "author": "John Gurin",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=24.x"
+  },
+  "scripts": {
+    "test": "tsx --test src/**/*.spec.ts",
+    "test:watch": "tsx --test --watch src/**/*.spec.ts",
+    "test:types": "tsc --noEmit",
+    "test:coverage": "npm run test -- --experimental-test-coverage",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "cli": "tsx src/main"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.5-nightly.81fdedb",
+    "@types/node": "^24.3.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

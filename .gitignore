@@ -1,0 +1,11 @@
+/*
+
+!/src
+
+!/.gitignore
+!/.npmrc
+!/biome.json
+!/package-lock.json
+!/package.json
+!/tsconfig.*
+!/README.md
