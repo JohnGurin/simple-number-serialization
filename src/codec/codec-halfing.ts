@@ -1,8 +1,7 @@
 import type { AsciiByte, Brand, Codec, Num1_300 } from './common.js'
 
 type Bits = { value: number; bits_left: number }
-type SourceBits = Bits & Brand<'SourceFrameData'>
-type TargetBits = Bits & Brand<'TargetBits'>
+type SourceBits = Bits & Brand<'SourceBits'>
 
 type FrameCfg = {
   is_head?: true
@@ -42,12 +41,6 @@ const FRAME_11: FrameCfg = {
 const FRAME_CONFIGS = [FRAME_5, FRAME_9, FRAME_11]
 const ASCII_BYTE_LENGTH = 7
 
-const empty_bits = (): TargetBits =>
-  ({
-    value: 0,
-    bits_left: ASCII_BYTE_LENGTH,
-  }) as TargetBits
-
 export const source_bits = (n: Num1_300): SourceBits => {
   /** biome-ignore lint/style/noNonNullAssertion: n argument is sanitized */
   const frame_config = FRAME_CONFIGS.find(cfg => n < 2 ** cfg.payload_bit_size)!
@@ -59,11 +52,7 @@ export const source_bits = (n: Num1_300): SourceBits => {
 
 const mask = (bits_count: number) => (1 << bits_count) - 1
 
-const roll = (
-  source: SourceBits,
-  target: TargetBits,
-  sink: (n: number) => void,
-): TargetBits => {
+const roll = (source: SourceBits, target: Bits, sink: (n: number) => void) => {
   let offset = source.bits_left - target.bits_left
   while (offset >= 0) {
     sink(target.value | (source.value >> offset))
@@ -80,7 +69,6 @@ const roll = (
   offset = -offset
   target.value |= source.value << offset
   target.bits_left = offset
-  return target
 }
 
 export const codec_halfing: Codec<Num1_300[], AsciiByte[], number[]> = {
@@ -88,8 +76,11 @@ export const codec_halfing: Codec<Num1_300[], AsciiByte[], number[]> = {
     const encoded: AsciiByte[] = []
     const push = (n: number) => encoded.push(n as AsciiByte)
 
-    let target = empty_bits()
-    for (const n of ns) target = roll(source_bits(n), target, push)
+    const target = {
+      value: 0,
+      bits_left: ASCII_BYTE_LENGTH,
+    }
+    for (const n of ns) roll(source_bits(n), target, push)
 
     if (target.value) push(target.value)
     return encoded
