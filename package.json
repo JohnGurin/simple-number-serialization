@@ -10,11 +10,14 @@
   "engines": {
     "node": ">=24.x"
   },
+  "config": {
+    "tests": "src/**/*.spec.ts"
+  },
   "scripts": {
-    "test": "tsx --test src/**/*.spec.ts",
-    "test:watch": "tsx --test --watch src/**/*.spec.ts",
+    "test": "cross-var tsx --test $npm_package_config_tests",
+    "test:watch": "cross-var tsx --test --watch $npm_package_config_tests",
     "test:types": "tsc --noEmit",
-    "test:coverage": "npm run test -- --experimental-test-coverage",
+    "test:coverage": "cross-var tsx --experimental-test-coverage --test $npm_package_config_tests",
     "test:mut": "stryker run",
     "lint": "biome check src",
     "lint:fix": "biome check --write src",
@@ -25,6 +28,7 @@
     "@stryker-mutator/core": "^9.1.1",
     "@stryker-mutator/typescript-checker": "^9.1.1",
     "@types/node": "^24.3.1",
+    "cross-var": "^1.1.0",
     "stryker": "^1.0.1",
     "stryker-cli": "^1.0.2",
     "tsx": "^4.20.5",
