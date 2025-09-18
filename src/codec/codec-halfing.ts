@@ -43,7 +43,7 @@ const ASCII_BYTE_LENGTH = 7
 
 export const source_bits = (n: Num1_300): SourceBits => {
   /** biome-ignore lint/style/noNonNullAssertion: n argument is sanitized */
-  const frame_config = FRAME_CONFIGS.find(cfg => n < 2 ** cfg.payload_bit_size)!
+  const frame_config = FRAME_CONFIGS.find(cfg => n < 1 << cfg.payload_bit_size)!
   return {
     value: frame_config.frame_mask | n,
     bits_left: frame_config.frame_bit_size,
