@@ -11,7 +11,7 @@
     "node": ">=24.x"
   },
   "config": {
-    "tests": "src/**/*.spec.ts"
+    "tests": "src/**/*.test.ts"
   },
   "scripts": {
     "test": "cross-var tsx --test $npm_package_config_tests",

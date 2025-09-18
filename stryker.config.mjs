@@ -6,7 +6,7 @@ const config = {
   testRunner: "command",
   coverageAnalysis: "off",
   checkers: ["typescript"],
-  mutate: ["src/codec/*.ts", "!src/**/*.spec.ts"],
+  mutate: ["src/codec/*.ts", "!src/**/*.test.ts"],
   timeoutFactor: 1.2,
   timeoutMS: 2000,
   incremental: true,
