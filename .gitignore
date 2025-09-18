@@ -9,3 +9,4 @@
 !/package.json
 !/tsconfig.*
 !/README.md
+!/stryker.config.mjs
