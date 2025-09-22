@@ -14,14 +14,14 @@
     "tests": "src/**/*.test.ts"
   },
   "scripts": {
-    "test": "cross-var tsx --test $npm_package_config_tests",
-    "test:watch": "cross-var tsx --test --watch $npm_package_config_tests",
+    "test": "cross-var node --test $npm_package_config_tests",
+    "test:watch": "cross-var node --test --watch $npm_package_config_tests",
     "test:types": "tsc --noEmit",
-    "test:coverage": "cross-var tsx --experimental-test-coverage --test $npm_package_config_tests",
+    "test:coverage": "cross-var node --experimental-test-coverage --test $npm_package_config_tests",
     "test:mut": "stryker run",
     "lint": "biome check src",
     "lint:fix": "biome check --write src",
-    "cli": "tsx src/main"
+    "cli": "node src/main"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.5-nightly.81fdedb",
@@ -31,7 +31,6 @@
     "cross-var": "^1.1.0",
     "stryker": "^1.0.1",
     "stryker-cli": "^1.0.2",
-    "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }
 }

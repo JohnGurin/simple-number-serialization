@@ -1,9 +1,9 @@
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
 
-import { codec_halfing, source_bits } from './codec-halfing.js'
-import type { AsciiByte, Num1_300 } from './common.js'
-import { encode_decode_cycle, rand_arr_of_num1_300 } from './test-utils.js'
+import { codec_halfing, source_bits } from './codec-halfing.ts'
+import type { AsciiByte, Num1_300 } from './common.ts'
+import { encode_decode_cycle, rand_arr_of_num1_300 } from './test-utils.ts'
 
 const frame_data = (value: number, bits_left: number) => ({
   value,

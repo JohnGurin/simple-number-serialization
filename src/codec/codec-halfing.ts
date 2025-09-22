@@ -1,4 +1,4 @@
-import type { AsciiByte, Brand, Codec, Num1_300 } from './common.js'
+import type { AsciiByte, Brand, Codec, Num1_300 } from './common.ts'
 
 type Bits = { value: number; bits_left: number }
 type SourceBits = Bits & Brand<'SourceBits'>

@@ -1,9 +1,9 @@
 import assert from 'node:assert'
 import { describe, it } from 'node:test'
-import { codec_comma_delim } from './codec-comma-delim.js'
-import { codec_halfing } from './codec-halfing.js'
-import type { Num1_300 } from './common.js'
-import { rand_arr_of_num1_300 } from './test-utils.js'
+import { codec_comma_delim } from './codec-comma-delim.ts'
+import { codec_halfing } from './codec-halfing.ts'
+import type { Num1_300 } from './common.ts'
+import { rand_arr_of_num1_300 } from './test-utils.ts'
 
 const TARGET_RATIO_PERCENT = 50
 

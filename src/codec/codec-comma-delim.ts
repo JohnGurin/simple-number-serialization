@@ -1,4 +1,4 @@
-import type { AsciiByte, Codec, Digit, Num1_300, Positive } from './common.js'
+import type { AsciiByte, Codec, Digit, Num1_300, Positive } from './common.ts'
 
 const COMMA_CHAR_CODE = ','.charCodeAt(0) as AsciiByte
 const ZERO_CHAR_CODE_OFFSET = '0'.charCodeAt(0)

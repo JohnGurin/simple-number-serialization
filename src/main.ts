@@ -6,7 +6,7 @@ import {
   codec_halfing,
   is_num1_300,
   new_num1_300_arr,
-} from '@/codec/index.js'
+} from './codec/index.ts'
 
 const usage_exit = () => {
   console.info(`usage: ${COMMANDS.join('|')} ${CODECS.join('|')}`)

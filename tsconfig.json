@@ -13,6 +13,8 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
 
     // Style Options
     "noImplicitReturns": true,
@@ -29,10 +31,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    }
   },
   "include": ["./src/**/*"]
 }

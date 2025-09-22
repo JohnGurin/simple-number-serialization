@@ -4,14 +4,14 @@ import assert from 'node:assert'
 import {
   codec_comma_delim,
   digits_from_positive_number,
-} from './codec-comma-delim.js'
+} from './codec-comma-delim.ts'
 import {
   type Num1_300,
   assertOrThrow,
   codec_ascii,
   is_positive,
-} from './common.js'
-import { encode_decode_cycle, rand_arr_of_num1_300 } from './test-utils.js'
+} from './common.ts'
+import { encode_decode_cycle, rand_arr_of_num1_300 } from './test-utils.ts'
 
 describe('codec-comma-delim', () => {
   it(digits_from_positive_number.name, () => {

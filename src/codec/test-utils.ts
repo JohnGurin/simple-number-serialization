@@ -1,5 +1,5 @@
 import assert from 'node:assert'
-import type { AsciiByte, Codec, Num1_300 } from './common.js'
+import type { AsciiByte, Codec, Num1_300 } from './common.ts'
 
 const rand_in_range = (min: number, max: number) => () =>
   Math.floor(Math.random() * (max - min + 1)) + min
