@@ -40,6 +40,7 @@ export function assertOrThrow<T>(
 ): asserts arg is T {
   if (!guard(arg)) {
     const guard_name = guard.name || `[${guard.toString()}]`
-    throw Error(`${arg} is not ${guard_name}`)
+    const arg_str = arg instanceof Object? arg.toString(): `${arg}`
+    throw Error(`${arg_str} is not ${guard_name}`)
   }
 }
